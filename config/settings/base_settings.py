@@ -1,10 +1,17 @@
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv() # take environment variables from .env.
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = ['*']
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG') == 'True'
 
 # Application definition
 
@@ -100,8 +107,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-try:
-    from .local_settings import * # noqa
-except ImportError:
-    from .prod_settings import * # noqa
