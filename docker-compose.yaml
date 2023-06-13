@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  app:
+    container_name: app
+    image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:{{ env.IMAGE_TAG }}
+    restart: always
+    ports:
+      - '8000:8000'

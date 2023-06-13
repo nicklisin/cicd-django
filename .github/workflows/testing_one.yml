@@ -45,3 +45,20 @@ jobs:
         docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
         docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
     
+    - name: Deploy COI VM
+      id: deploy-coi
+      uses: yc-actions/yc-coi-deploy@v1
+      env:
+        CR_REGISTRY: crpeg05053fj7bqfk5od
+        CR_REPOSITORY: cicd-django
+        IMAGE_TAG: ${{ github.sha }}
+        YC_VM_SSH: ${{ secrets.YC_VM_SSH }}
+        YC_VM_USERNAME: ${{ secrets.YC_VM_USERNAME }}
+      with:
+        yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
+        folder-id: b1gpbt4jb9ls1d9364c8
+        VM-name: cicdvm
+        vm-service-account-id: aje2vjfhqockpmghcg0t
+        vm-subnet-id: ${{ secrets.YC_SUBNET_ID }}
+        user-data-path: './user-data.yaml'
+        docker-compose-path: './docker-compose.yaml'
