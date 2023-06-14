@@ -63,7 +63,7 @@ jobs:
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
           folder-id: b1gpbt4jb9ls1d9364c8
-          VM-name: cicdvm
+          VM-name: coi-vm
           vm-service-account-id: aje2vjfhqockpmghcg0t
           vm-subnet-id: ${{ secrets.YC_SUBNET_ID }}
           user-data-path: './user-data.yaml'
