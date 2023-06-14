@@ -5,4 +5,4 @@ services:
     image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:{{ env.IMAGE_TAG }}
     restart: always
     ports:
-      - '8000:8000'
+      - '80:80'
