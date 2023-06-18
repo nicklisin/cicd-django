@@ -3,8 +3,7 @@ services:
   app:
     container_name: app
     image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:{{ env.IMAGE_TAG }}
-    env:
-    - name: SECRET_KEY
-      value: {{ env.SECRET_KEY }}
+    environment:
+      SECRET_KEY: ${ env.SECRET_KEY }
     ports:
       - '80:80'
