@@ -3,6 +3,5 @@ services:
   app:
     container_name: app
     image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:{{ env.IMAGE_TAG }}
-    restart: always
     ports:
       - '80:80'
