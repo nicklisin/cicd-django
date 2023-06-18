@@ -1,9 +1,7 @@
 FROM python:3.9-alpine
 
 ENV DockerHOME=/home/app/webapp
-
 RUN mkdir -p $DockerHOME
-
 WORKDIR $DockerHOME
 
 ENV PYTHONDONTWRITEBYTECODE 1
