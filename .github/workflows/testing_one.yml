@@ -60,6 +60,8 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
           YC_VM_SSH: ${{ secrets.YC_VM_SSH }}
           YC_VM_USERNAME: ${{ secrets.YC_VM_USERNAME }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          DEBUG: ${{ secrets.DEBUG }}
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
           folder-id: b1gpbt4jb9ls1d9364c8
