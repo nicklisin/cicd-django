@@ -41,6 +41,9 @@ jobs:
         CR_REGISTRY: crpeg05053fj7bqfk5od
         CR_REPOSITORY: cicd-django
         IMAGE_TAG: ${{ github.sha }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        DEBUG: ${{ secrets.DEBUG }}
+        
       run: |
         docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
         docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
