@@ -1,4 +1,4 @@
-name: Django Tests 1
+name: Django Tests and Deploy
 
 on: 
   push:       
@@ -41,20 +41,16 @@ jobs:
         CR_REGISTRY: crpeg05053fj7bqfk5od
         CR_REPOSITORY: cicd-django
         IMAGE_TAG: ${{ github.sha }}
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        DEBUG: ${{ secrets.DEBUG }}
-        
       run: |
         docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG .
         docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$IMAGE_TAG
     
   update-yc:
-    needs:
-      - build
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Deploy COI VM
         id: deploy-coi
         uses: yc-actions/yc-coi-deploy@v1
@@ -64,12 +60,16 @@ jobs:
           IMAGE_TAG: ${{ github.sha }}
           YC_VM_SSH: ${{ secrets.YC_VM_SSH }}
           YC_VM_USERNAME: ${{ secrets.YC_VM_USERNAME }}
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          DEBUG: ${{ secrets.DEBUG }}
         with:
           yc-sa-json-credentials: ${{ secrets.YC_SA_JSON_CREDENTIALS }}
           folder-id: b1gpbt4jb9ls1d9364c8
           VM-name: coi-vm
+          vm-platform-id: 'standard-v2'
+          vm-cores: 2
+          vm-core-fraction: 50
+          vm-memory: 1Gb
+          vm-disk-size: 30Gb
+          vm-zone-id: ru-central1-a
           vm-service-account-id: aje2vjfhqockpmghcg0t
           vm-subnet-id: ${{ secrets.YC_SUBNET_ID }}
           user-data-path: './user-data.yaml'
