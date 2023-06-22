@@ -6,8 +6,10 @@ services:
     environment:
       - DEBUG=False
       - SECRET_KEY=$${env.SECRET_KEY}
-      - PG_DB_NAME=$${env.PG_DB_NAME}
-      - PG_DB_USER=$${env.PG_DB_USER}
-      - PG_DB_PASSWORD=$${env.PG_DB_PASSWORD}
+      - DB_ENGINE=$${env.DB_ENGINE}
+      - DB_NAME=$${env.DB_NAME}
+      - DB_USER=$${env.DB_USER}
+      - DB_PASSWORD=$${env.DB_PASSWORD}
+      - DJANGO_ALLOWED_HOSTS=$${env.DJANGO_ALLOWED_HOSTS}
     ports:
       - '80:80'
