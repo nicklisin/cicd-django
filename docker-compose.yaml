@@ -5,11 +5,11 @@ services:
     image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:{{ env.IMAGE_TAG }}
     environment:
       - DEBUG=False
-      - SECRET_KEY=$${env.SECRET_KEY}
-      - DB_ENGINE=$${env.DB_ENGINE}
-      - DB_NAME=$${env.DB_NAME}
-      - DB_USER=$${env.DB_USER}
-      - DB_PASSWORD=$${env.DB_PASSWORD}
-      - DJANGO_ALLOWED_HOSTS=$${env.DJANGO_ALLOWED_HOSTS}
+      - SECRET_KEY=${env.SECRET_KEY}
+      - DB_ENGINE=${env.DB_ENGINE}
+      - DB_NAME=${env.DB_NAME}
+      - DB_USER=${env.DB_USER}
+      - DB_PASSWORD=${env.DB_PASSWORD}
+      - DJANGO_ALLOWED_HOSTS=${env.DJANGO_ALLOWED_HOSTS}
     ports:
       - '80:80'
