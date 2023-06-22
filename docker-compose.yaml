@@ -6,5 +6,8 @@ services:
     environment:
       - DEBUG=False
       - SECRET_KEY=$${env.SECRET_KEY}
+      - PG_DB_NAME=$${env.PG_DB_NAME}
+      - PG_DB_USER=$${env.PG_DB_USER}
+      - PG_DB_PASSWORD=$${env.PG_DB_PASSWORD}
     ports:
       - '80:80'
