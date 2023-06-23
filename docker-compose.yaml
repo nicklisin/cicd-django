@@ -15,4 +15,4 @@ services:
     ports:
       - '80:80'
     extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - 'host.docker.internal:host-gateway'
