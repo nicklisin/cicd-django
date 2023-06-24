@@ -22,7 +22,7 @@ RUN python -m venv /py && \
     mkdir -p /vol/web/static && \
     mkdir -p /vol/web/media && \
     chown -R app:app /vol && \
-    # chown -R user:user /app && \
+    chown -R user:user /app && \
     chmod -R 755 /vol && \
     chmod -R +x /scripts
 
