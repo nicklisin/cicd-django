@@ -81,4 +81,4 @@ jobs:
           vm-service-account-id: aje2vjfhqockpmghcg0t
           vm-subnet-id: ${{ secrets.YC_SUBNET_ID }}
           user-data-path: './user-data.yaml'
-          docker-compose-path: './docker-compose.yaml'
+          docker-compose-path: './docker-compose-deploy.yaml'
