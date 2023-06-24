@@ -30,4 +30,5 @@ ENV PATH="/scripts:/py/bin:$PATH"
 USER app
 # RUN chown -R user:user /vol
 
+
 CMD [ "run.sh" ]
