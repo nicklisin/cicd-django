@@ -6,7 +6,7 @@ services:
              python manage.py collectstatic --noinput && 
              python manage.py migrate"
     volumes:
-      - static-data/web:/vol/web
+      - static-data/:/vol/web
     ports:
       - "127.0.0.1:8000:8000"
     container_name: app
@@ -27,7 +27,7 @@ services:
     image: postgres:13-alpine
     restart: always
     volumes:
-      - postgres_data:/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     environment:
       - DB_NAME=main_db
       - DB_USER={{env.DB_USER}}
