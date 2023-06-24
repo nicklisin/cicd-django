@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /requirements.txt
 COPY . /app
-COPY ./scipts /scipts
+COPY ./scripts /scripts
 
 WORKDIR /app
 
