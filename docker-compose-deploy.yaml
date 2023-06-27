@@ -3,9 +3,9 @@ services:
   app:
     restart: always
     volumes:
-      - static-data:/vol/web
+      - static:/vol/web
     ports:
-      - "127.0.0.1:8000:8000"
+      - 8000:8000
     container_name: app
     image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:{{ env.IMAGE_TAG }}
     environment:
@@ -31,8 +31,19 @@ services:
       - POSTGRES_USER={{env.DB_USER}}
       - POSTGRES_PASSWORD={{env.DB_PASSWORD}}
     ports:
-      - "5432:5432"
+      - 5432:5432
+
+  proxy:
+    build:
+      context: ./proxy
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - 80:80
+    volumes:
+      - static:/vol/static
 
 volumes:
   postgres-data:
-  static-data:
+  static:
