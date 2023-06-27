@@ -7,7 +7,7 @@ services:
     ports:
       - 8000:8000
     container_name: app
-    image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:{{ env.IMAGE_TAG }}
+    image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:app-{{ env.IMAGE_TAG }}
     environment:
       - DEBUG=False
       - SECRET_KEY={{env.SECRET_KEY}}
