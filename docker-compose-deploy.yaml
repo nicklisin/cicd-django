@@ -35,9 +35,7 @@ services:
 
   proxy:
     container_name: proxy
-    build:
-      context: ./proxy
-      dockerfile: ./proxy/Dockerfile
+    image: cr.yandex/{{ env.CR_REGISTRY }}/{{ env.CR_REPOSITORY }}:proxy-{{ env.IMAGE_TAG }}
     restart: always
     depends_on:
       - app
