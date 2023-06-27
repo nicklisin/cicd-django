@@ -34,6 +34,7 @@ services:
       - 5432:5432
 
   proxy:
+    container_name: proxy
     build:
       context: ./proxy
       dockerfile: ./proxy/Dockerfile
