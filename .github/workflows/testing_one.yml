@@ -92,7 +92,7 @@ jobs:
           vm-platform-id: 'standard-v2'
           vm-cores: 2
           vm-core-fraction: 50
-          vm-memory: 1Gb
+          vm-memory: 2Gb
           vm-disk-size: 30Gb
           vm-zone-id: ru-central1-a
           vm-service-account-id: aje2vjfhqockpmghcg0t
