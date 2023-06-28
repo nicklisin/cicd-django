@@ -42,7 +42,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - static:/vol/static
+      - static:/vol/web
 
 volumes:
   postgres-data:
